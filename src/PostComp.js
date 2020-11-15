@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Avatar from '@material-ui/core/Avatar'
 import { db } from './firebase';
 import firebase from 'firebase'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import SendIcon from '@material-ui/icons/Send';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 
 function PostComp({postId, username, caption, imageURL, user}) {
@@ -48,6 +52,16 @@ function PostComp({postId, username, caption, imageURL, user}) {
             {/**Post Image */}
             <img className = "post__post-image" src = {imageURL} 
                  alt = "username_avatar"/>
+            <div className = "post_actions">
+                <div className = "post_actions_left">
+                    <FavoriteBorderIcon/>
+                    <ChatBubbleOutlineIcon/>
+                    <SendIcon/>
+                </div>
+                <div className = "post_actions_right">
+                    <BookmarkBorderIcon/>
+                </div>
+            </div>
             {/** Username: caption below image*/}
             <h4 className = "post__caption"><strong>{username}</strong> {caption}</h4>
 

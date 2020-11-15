@@ -7,7 +7,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import { Button, Grid, Input } from '@material-ui/core';
 import ImageUpload from './ImageUpload';
 import Avatar from '@material-ui/core/Avatar'
-
+import HomeIcon from '@material-ui/icons/Home';
+import SendIcon from '@material-ui/icons/Send';
+import ExploreIcon from '@material-ui/icons/Explore';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 //Modal styling
 function getModalStyle() {
@@ -142,7 +145,14 @@ function App() {
 
       {/**Header */}
       <div className = "app__header">
-        <img className = "app__insta-logo" src = "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt = "Instagram logo"/>
+        <img className = "app__insta-logo-header" src = "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt = "Instagram logo"/>
+        <div className = "app__header__icons">
+          <HomeIcon/>
+          <SendIcon/>
+          <ExploreIcon/>
+          <FavoriteBorderIcon/>
+          <Avatar></Avatar>
+        </div>
         {/**Sign in sign out buttons */}
         {user ? <Button onClick = {() => auth.signOut()} >Sign out</Button> : (
                 <div className = "app__loginContainer" >
@@ -151,8 +161,9 @@ function App() {
                 </div>
               )}
       </div>
-      <Grid container spacing = {3}>
-        <Grid item xs = {12} sm = {9}
+      <Grid container spacing = {1}>
+        <Grid item xs = {12} sm = {2}></Grid>
+        <Grid item xs = {12} sm = {5}
               direction="column"
               alignItems="center"
               justify="center">
@@ -173,8 +184,14 @@ function App() {
                   <h3>{user?.displayName}</h3>
           </div>
           {/**Upload functionality */}
-          {user?.displayName ? (<ImageUpload username = {user.displayName}/>) : (<h3>Login to upload</h3>) } 
+          {user?.displayName ? (<ImageUpload username = {user.displayName}/>) : (<h3>Sign in/Sign up to upload</h3>) } 
+          <div className = "footer">
+            <p>About Help Press API Jobs Privacy Terms Locations Top Accounts Hashtags Language English</p>
+            <p>INSTAGRAM CLONE FOR DEMO PURPOSES ONLY</p>
+            <p>No Copyrights Reserved</p>
+          </div>
         </Grid>
+        <Grid item xs = {12} xs = {2}></Grid>
       </Grid>   
     </div>
   );
